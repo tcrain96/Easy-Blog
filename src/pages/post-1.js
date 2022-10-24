@@ -1,12 +1,12 @@
 import * as React from "react"
 import Layout from "../components/layout"
 
-export default function Home() {
+export default function Post1() {
   return (
       <Layout>
-        <h1>I'm the Home Page</h1>
+        <h1>I'm Post 1</h1>
       </Layout>
   )
 }
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>Post 1</title>
