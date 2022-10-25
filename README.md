@@ -2,7 +2,7 @@
 
 [Easy Blog Live URL](https://secret-wave-15464.herokuapp.com/)
 
-![Easy Blog Home Page](./src/images/Full-Screenshot.png.png?raw=true "Home - Easy Blog")
+![Easy Blog Home Page](./src/images/Fullscreen-Capture.png?raw=true "Home - Easy Blog")
 
 ## Description
 
