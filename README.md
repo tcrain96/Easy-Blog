@@ -1,6 +1,6 @@
 # Easy Blog
 
-[Easy Blog Live URL](https://secret-wave-15464.herokuapp.com/)
+[Easy Blog Live URL](https://easyblog.gtsb.io/)
 
 ![Easy Blog Home Page](./src/images/Fullscreen-Capture.png?raw=true "Home - Easy Blog")
 
