@@ -6,7 +6,7 @@ import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 
 export default function Layout({ children }) {
 
-  const [NavOpen, showNavBar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const data = useStaticQuery(graphql`
     query {
@@ -15,6 +15,7 @@ export default function Layout({ children }) {
           frontmatter {
             title
             slug
+            date
           }
           id
         }
@@ -24,15 +25,17 @@ export default function Layout({ children }) {
 
   return (
     <section className="flex">
-      <nav id="side-nav" className={`top-0 left-0 w-[35vw] bg-blue-600 p-10 pl-20 text-white fixed h-full z-40 ${showNavBar?"translate-x-0":"translate-x-full"}`}>
+
+      <nav id="side-nav" className={`overflow-auto flex flex-col ease-in-out duration-300 bg-blue-600 text-white h-screen  ${showSidebar ? "w-0" : "w-2/5"}`}>
       {data.allMdx.nodes.map((node) => (
-          <Link className="flex" to={`/${node.frontmatter.slug}`} key={node.id}>
-            {node.frontmatter.title}
+          <Link className={`ease-in-out duration-300 p-5 m-3 mb-0 bg-gray-700 w-700 hover:bg-gray-600 ${showSidebar ? "pointer-events-none translate-x--100" : "pointer-events-auto opacity-1"}`}to={`/${node.frontmatter.slug}`} key={node.id}>
+            <span className="font-bold"> {node.frontmatter.title} </span> - {node.frontmatter.date}
             </Link>
       ))}
       </nav>
-      <div onClick={()=>showNavBar(!NavOpen)} className="transition duration-300 bg-blue-500 pr-5 pl-5 hover:bg-blue-600 hover:cursor-pointer">
-      <FontAwesomeIcon icon={faArrowRight} className="align-self-center h-screen w-5 text-center"></FontAwesomeIcon>
+
+      <div onClick={()=>setShowSidebar(!showSidebar)} className="text-white transition duration-300 bg-blue-500 pr-5 pl-5 hover:bg-blue-400 hover:cursor-pointer z-50">
+      <FontAwesomeIcon icon={faArrowRight} className={`align-self-center h-screen w-5 text-center ${showSidebar ? "rotate-0" : "rotate-180"}`}></FontAwesomeIcon>
       </div>
       
       {children}

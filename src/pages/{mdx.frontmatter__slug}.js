@@ -5,8 +5,11 @@ import { graphql } from "gatsby";
 export default function BlogPage({ data }) {
   return (
     <Layout>
-      <h1>{data.mdx.frontmatter.title}</h1>
-      <p>{data.mdx.excerpt}</p>
+      <section className="bg-gray-500 m-10 p-20 w-full rounded">
+      <h1 className="mb-5 text-5xl text-blue-400 bg-gray-700 p-5 rounded">{data.mdx.frontmatter.title}</h1>
+      <p className="text-xl text-white bg-gray-700 p-5 rounded">{data.mdx.excerpt}</p>
+      </section>
+      
     </Layout>
   );
 }
